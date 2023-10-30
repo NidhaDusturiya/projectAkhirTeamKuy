@@ -8,7 +8,7 @@ import android.os.Looper
 import android.widget.ImageView
 import com.example.teamkuy2.ui.login.LoginActivity
 
-class Splash : AppCompatActivity() {
+class Splashscreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_splashscreen)
