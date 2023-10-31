@@ -1,4 +1,4 @@
-package com.example.teamkuy.ui.home
+package com.example.teamkuy2.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

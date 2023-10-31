@@ -23,7 +23,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_txt"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
+        android:layout_height="700dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/shape_bg_layout_login"
@@ -32,6 +32,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_judul"
+        android:layout_marginTop="40dp"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
@@ -107,6 +108,41 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/txt_nim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Nim"
+            android:textColor="@color/dblue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/namaPenggunaLayout">
+        </TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/NimLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txt_nim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:endIconMode="clear_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan nim anda"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
             android:id="@+id/txt_email_regis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +154,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/namaPenggunaLayout"></TextView>
+            app:layout_constraintTop_toBottomOf="@id/NimLayout"></TextView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailLayout"

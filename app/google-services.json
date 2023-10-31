@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927856494338",
+    "project_id": "teamkuy-43e0e",
+    "storage_bucket": "teamkuy-43e0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927856494338:android:fcb55ec69f236d94f5e41b",
+        "android_client_info": {
+          "package_name": "com.example.teamkuy2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBACVfTYy3Qi54ic9sw4DupDgRz3BYqhEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
