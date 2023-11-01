@@ -6,6 +6,19 @@
     <string name="avatar">Avatar</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_menu_1">Langkah-Langkah Login</string>
+    <string name="title_menu_2">Langkah-Langkah Register</string>
+    <string name="title_menu_3">Login Register</string>
+    <string name="title_menu_4">Tim Kami</string>
+    <string name="desc_menu_1">Pengguna akan disambut dengan Interface yang memungkinkan mereka untuk memasukkan informasi akun mereka. Motion Layout dapat digunakan untuk membuat efek visual yang memikat, seperti elemen-elemen UI yang muncul dengan perlahan atau mungkin elemen yang bergerak saat tampilan muncul.</string>
+    <string name="desc_menu_2">Pengguna yang belum memiliki akun dapat memilih opsi ini untuk membuat akun baru.digunakan untuk menciptakan animasi yang menjelaskan langkah-langkah pendaftaran atau mengarahkan perhatian pengguna pada isian formulir penting.</string>
+    <string name="desc_menu_3">Setelah berhasil mendaftar, Anda dapat segera menggunakan akun yang baru Anda buat untuk masuk. Cukup klik "Pergi ke Login" dan gunakan kredensial yang baru Anda daftarkan untuk mengakses aplikasi.</string>
+    <string name="desc_menu_4">Teamkuy beranggotakan Nidha Dusturiya A. Dimas Fajar. M.Rayhan Tazakka</string>
+    <string name="learn_now">Login Sekarang</string>
+    <string name="gambar_kurikulum_global">Gambar kurikulum Global</string>
+    <string name="gambar_belajar_fleksibel">Gambar belajar fleksibel</string>
+    <string name="gambar_code_reviewer">Gambar code reviewer</string>
+    <string name="gambar_alumni_terpercaya">Gambar alumni terpercaya</string>
+    <string name="gambar_dicoding">Gambar dicoding</string>
 </resources>
