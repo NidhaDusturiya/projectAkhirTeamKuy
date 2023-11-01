@@ -80,5 +80,5 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
 
 //    //datastore
-//    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
 }

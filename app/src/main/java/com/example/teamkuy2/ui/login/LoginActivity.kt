@@ -6,12 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.teamkuy2.MainActivity
 import com.example.teamkuy2.databinding.FragmentLoginBinding
-import com.example.teamkuy2.databinding.FragmentRegisterBinding
-import com.example.teamkuy2.ui.home.HomeFragment
 import com.example.teamkuy2.ui.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
-
-
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,8 +18,8 @@ class LoginActivity : AppCompatActivity() {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportActionBar?.hide()
 
+        supportActionBar?.hide()
         auth = FirebaseAuth.getInstance()
 
         binding.daftarAkun.setOnClickListener {
@@ -31,9 +27,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnMasuk.setOnClickListener{
+
+
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPass.text.toString()
-
 
             if (email.isEmpty()){
             binding.inputEmail.error = "email harus diisi"
@@ -68,4 +65,5 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
+
     }

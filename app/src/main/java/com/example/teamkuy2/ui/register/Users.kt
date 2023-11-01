@@ -1,4 +1,4 @@
-package com.example.teamkuy2.ui
+package com.example.teamkuy2.ui.register
 
 //parameter
 data class Users(

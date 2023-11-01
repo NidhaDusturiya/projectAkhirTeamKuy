@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dblue">#132043</color>
     <color name="lblue">#1F4172</color>
+
+    <color name="pink">#F06292</color>
+    <color name="navi">#2D3D4F</color>
 </resources>

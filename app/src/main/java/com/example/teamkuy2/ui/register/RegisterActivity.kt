@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.teamkuy2.R
-import com.google.firebase.auth.FirebaseAuth
-import  com.example.teamkuy2.databinding.FragmentRegisterBinding
-import com.example.teamkuy2.ui.Users
+import com.example.teamkuy2.databinding.FragmentRegisterBinding
 import com.example.teamkuy2.ui.login.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity(){
@@ -26,6 +24,7 @@ class RegisterActivity : AppCompatActivity(){
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
+
 
         binding.btndaftar.setOnClickListener {
             val username = binding.inputNamaPengguna.text.toString()
@@ -76,6 +75,8 @@ class RegisterActivity : AppCompatActivity(){
                 binding.inputPassword.error = "Password minimal 8 karakter"
                 binding.inputPassword.requestFocus()
                 return@setOnClickListener
+
+
             }else{
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                     if(it.isSuccessful){

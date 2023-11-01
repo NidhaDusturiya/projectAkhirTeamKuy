@@ -21,4 +21,8 @@
     <string name="gambar_code_reviewer">Gambar code reviewer</string>
     <string name="gambar_alumni_terpercaya">Gambar alumni terpercaya</string>
     <string name="gambar_dicoding">Gambar dicoding</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

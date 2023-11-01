@@ -1,14 +1,11 @@
 package com.example.teamkuy2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.ImageView
 import com.example.teamapp.ui.OnBoarding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.teamkuy2.ui.login.LoginActivity
-import com.example.teamkuy2.ui.register.RegisterActivity
 
 class Splashscreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
