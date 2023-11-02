@@ -4,73 +4,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teamkuy2.databinding.FragmentHomeBinding
-import com.example.teamkuy2.ui.model.DataItem
-import com.example.teamkuy2.ui.model.ResponseUser
-import com.example.teamkuy.ui.network.ApiConfig
-import com.example.teamkuy2.ui.home.HomeViewModel
-import com.example.teamkuy2.ui.home.UserAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.teamkuy2.ui.network.ApiClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: UserAdapter
-
-    private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        adapter = UserAdapter(mutableListOf())
-        val recyclerView = binding.rvUsers
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
-
-
-        getUser()
-        return root
+    ): View? {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun getUser(){
-        val client = ApiConfig.getApiService().getListUsers("1")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        client.enqueue(object : Callback<ResponseUser> {
-            override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>){
-                if (response.isSuccessful) {
-                    val dataArray = response.body()?.data as List<DataItem>
-                    for (data in dataArray) {
-                        adapter.addUser(data)
-                    }
+        adapter = UserAdapter() // Inisialisasi adapter
+
+        binding.rvUsers.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvUsers.setHasFixedSize(true)
+        binding.rvUsers.adapter = adapter
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                val response = ApiClient.githubService.getUserGithub()
+                launch(Dispatchers.Main) {
+                    // Do something on the main thread if needed
+                }
+                adapter.setData(response)
+            } catch (e: Exception) {
+                activity?.runOnUiThread {
+                    Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
-            }
-        })
-    }
-
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        }
     }
 }
+
+

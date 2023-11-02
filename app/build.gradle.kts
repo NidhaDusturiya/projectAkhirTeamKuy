@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
    // id("com.google.devtools.ksp")
+    id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.google.gms.google-services")
 
@@ -56,8 +57,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
-    implementation("com.google.firebase:firebase-auth:22.2.0")
-    implementation("com.google.firebase:firebase-database:20.3.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -76,9 +76,34 @@ dependencies {
 
 //    implementation("androidx.room:room-runtime:2.5.2")
 //    ksp("androidx.room:room-compiler:2.5.2")
+
+
+    //firebase
+    implementation("com.google.firebase:firebase-auth:22.2.0")
+    implementation("com.google.firebase:firebase-database:20.3.0")
     implementation(platform("com.google.firebase:firebase-bom:32.4.1"))
     implementation("com.google.firebase:firebase-analytics-ktx")
 
-//    //datastore
+    //datastore
     implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    //untuk api github
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-alpha04")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha04")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha04")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha04")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0-alpha04")
+    kapt ("androidx.lifecycle:lifecycle-compiler:2.5.0-alpha04")
+    implementation ("androidx.lifecycle:lifecycle-common-java8:2.5.0-alpha04")
+    implementation("io.coil-kt:coil:1.4.0")
+    implementation ("com.google.code.gson:gson:2.9.0")
+    implementation ("androidx.activity:activity-ktx:1.4.0")
+    implementation ("androidx.fragment:fragment-ktx:1.4.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation ("androidx.room:room-runtime:2.4.2")
+    kapt ("androidx.room:room-compiler:2.4.2")
+    implementation ("androidx.room:room-rxjava3:2.4.2")
 }
