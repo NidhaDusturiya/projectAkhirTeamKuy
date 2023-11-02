@@ -10,18 +10,34 @@
         android:id="@+id/searchView"
         android:layout_width="390dp"
         android:layout_height="50dp"
-        android:background="@drawable/search1"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        app:queryBackground="@android:color/transparent"
         app:iconifiedByDefault="false"
         app:layout_constraintBottom_toTopOf="@+id/rv_users"
-        app:queryHint="Search Here..."
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Search Here..." />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:layout_editor_absoluteX="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
         tools:layout_editor_absoluteY="57dp"
         tools:listitem="@layout/item_list_user" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

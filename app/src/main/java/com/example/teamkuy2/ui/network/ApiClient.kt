@@ -14,12 +14,6 @@ object ApiClient {
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             addInterceptor(loggingInterceptor)
 
-            addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "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")
-                    .build()
-                chain.proceed(request)
-            }
         }
         .readTimeout(25, TimeUnit.SECONDS)
         .writeTimeout(300, TimeUnit.SECONDS)

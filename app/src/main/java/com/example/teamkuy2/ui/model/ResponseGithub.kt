@@ -7,23 +7,24 @@ data class ResponseGithub(
 
 ) {
 	data class ResponseGithubItem(
-		val gistsUrl: String? = null,
-		val reposUrl: String? = null,
-		val followingUrl: String? = null,
-		val starredUrl: String? = null,
-		val login: String? = null,
-		val followersUrl: String? = null,
-		val type: String? = null,
-		val url: String? = null,
-		val subscriptionsUrl: String? = null,
-		val receivedEventsUrl: String? = null,
-		val avatarUrl: String? = null,
-		val eventsUrl: String? = null,
-		val htmlUrl: String? = null,
-		val siteAdmin: Boolean? = null,
-		val id: Int? = null,
-		val gravatarId: String? = null,
-		val nodeId: String? = null,
-		val organizationsUrl: String? = null
+		val avatar_url: String,
+		val events_url: String,
+		val followers_url: String,
+		val following_url: String,
+		val gists_url: String,
+		val gravatar_id: String,
+		val html_url: String,
+		val id: Int,
+		val login: String,
+		val node_id: String,
+		val organizations_url: String,
+		val received_events_url: String,
+		val repos_url: String,
+		val score: Double,
+		val site_admin: Boolean,
+		val starred_url: String,
+		val subscriptions_url: String,
+		val type: String,
+		val url: String
 	)
 }
