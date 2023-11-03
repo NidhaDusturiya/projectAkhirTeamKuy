@@ -31,5 +31,8 @@
         android:id="@+id/navigation_Detail"
         android:name="com.example.teamkuy2.ui.detaill.HomeDetailFragment"
         android:label="@string/title_detail"
-        tools:layout="@layout/fragment_home_detail" />
+        tools:layout="@layout/fragment_home_detail">
+    </fragment>
+
+
 </navigation>
