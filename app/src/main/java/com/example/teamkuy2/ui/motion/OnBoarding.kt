@@ -1,20 +1,12 @@
-package com.example.teamapp.ui
+package com.example.teamkuy2.ui
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.teamkuy2.R
 import com.example.teamkuy2.databinding.FragmentOnBoardingBinding
-import com.example.teamkuy2.databinding.FragmentLoginBinding
 import com.example.teamkuy2.ui.login.LoginActivity
 
 class OnBoarding : AppCompatActivity() {

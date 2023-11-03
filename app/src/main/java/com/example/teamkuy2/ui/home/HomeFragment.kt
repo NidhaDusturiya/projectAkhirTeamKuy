@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teamkuy2.R
 import com.example.teamkuy2.databinding.FragmentHomeBinding
-import com.example.teamkuy2.ui.Detail.HomeDetailFragment
+import com.example.teamkuy2.ui.detaill.HomeDetailFragment
 import com.example.teamkuy2.ui.model.ResponseGithub
 
 
@@ -31,15 +31,17 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         adapter = UserAdapter(mutableListOf()){
-            item ->  val detailFragment = HomeDetailFragment()
+            user ->  val detailFragment = HomeDetailFragment()
             val bundle = Bundle()
-            bundle.putString("username", item.login)
+            bundle.putString("username", user.login)
             detailFragment.arguments = bundle
-
+            //tetep force close
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment_activity_main, detailFragment)
+            transaction.replace(R.id.nav_main, detailFragment)
             transaction.addToBackStack(null)
             transaction.commit()
+
+
         }
         binding.rvUsers.layoutManager = LinearLayoutManager(requireContext())
         binding.rvUsers.setHasFixedSize(true)

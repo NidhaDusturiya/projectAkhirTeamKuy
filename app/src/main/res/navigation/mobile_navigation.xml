@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.teamkuy2.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@+id/navigation_Detail"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -22,4 +26,10 @@
         android:name="com.example.teamkuy2.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_Detail"
+        android:name="com.example.teamkuy2.ui.detaill.HomeDetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_home_detail" />
 </navigation>

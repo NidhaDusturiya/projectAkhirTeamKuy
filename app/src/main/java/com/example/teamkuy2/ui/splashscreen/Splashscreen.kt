@@ -3,9 +3,7 @@ package com.example.teamkuy2
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import com.example.teamapp.ui.OnBoarding
 import androidx.appcompat.app.AppCompatActivity
-import com.example.teamkuy2.ui.login.LoginActivity
 
 class Splashscreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +15,7 @@ class Splashscreen : AppCompatActivity() {
 
         splash.alpha = 0f
         splash.animate().setDuration(1000).alpha(1f).withEndAction {
-            val intent = Intent(this, OnBoarding::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

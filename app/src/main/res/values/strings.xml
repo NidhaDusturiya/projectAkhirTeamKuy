@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_detail">Detail</string>
     <string name="avatar">Avatar</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
