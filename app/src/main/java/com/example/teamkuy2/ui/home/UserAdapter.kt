@@ -11,7 +11,7 @@ import com.example.teamkuy2.ui.model.ResponseGithub
 import java.util.*
 
 class UserAdapter(
-    private var Alldata:MutableList<ResponseGithub.ResponseGithubItem>,
+    private var Alldata:MutableList<ResponseGithub.ResponseGithubItem> = mutableListOf(),
     private val listener : (ResponseGithub.ResponseGithubItem) -> Unit):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>(), Filterable {
 

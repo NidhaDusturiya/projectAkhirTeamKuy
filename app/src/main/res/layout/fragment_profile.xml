@@ -20,7 +20,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@drawable/bg"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -233,10 +232,10 @@
                 android:layout_margin="5dp"
                 android:padding="3dp">
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/ic_infoNotif" />
+<!--                <ImageView-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:src="@drawable/ic_infoNotif" />-->
 
                 <TextView
                     android:layout_width="match_parent"

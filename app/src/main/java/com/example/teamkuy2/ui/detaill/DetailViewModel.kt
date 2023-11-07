@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 
 class DetailViewModel() : ViewModel(){
     val resultDetailUser = MutableLiveData<Result>()
+    val resultFollowersUser = MutableLiveData<Result>()
+    val resultFollowingUser = MutableLiveData<Result>()
     fun getDetailUser(username : String){
         viewModelScope.launch {
             flow{
@@ -21,19 +23,57 @@ class DetailViewModel() : ViewModel(){
                     .getDetailUserGithub(username)
 
                 emit(response)
-            }
-                .onStart {
+            }.onStart {
                     resultDetailUser.value = Result.Loading(true)
-                }
-                .onCompletion {
+            }.onCompletion {
                     resultDetailUser.value = Result.Loading(false)
-                }
-                .catch {
+            }.catch {
                     it.printStackTrace()
                     resultDetailUser.value = Result.Error(it)
-                }.collect{
+            }.collect{
                     resultDetailUser.value = Result.Success(it)
-                }
+            }
+        }
+    }
+
+    fun getFollowers(username: String) {
+        viewModelScope.launch {
+            flow {
+                val response = ApiClient
+                    .githubService
+                    .getFollowersUserGithub(username)
+
+                emit(response)
+            }.onStart {
+                resultFollowersUser.value = Result.Loading(true)
+            }.onCompletion {
+                resultFollowersUser.value = Result.Loading(false)
+            }.catch {
+                it.printStackTrace()
+                resultFollowersUser.value = Result.Error(it)
+            }.collect {
+                resultFollowersUser.value = Result.Success(it)
+            }
+        }
+    }
+    fun getFollowing(username: String) {
+        viewModelScope.launch {
+            flow {
+                val response = ApiClient
+                    .githubService
+                    .getFollowingUserGithub(username)
+
+                emit(response)
+            }.onStart {
+                resultFollowingUser.value = Result.Loading(true)
+            }.onCompletion {
+                resultFollowingUser.value = Result.Loading(false)
+            }.catch {
+                it.printStackTrace()
+                resultFollowingUser.value = Result.Error(it)
+            }.collect {
+                resultFollowingUser.value = Result.Success(it)
+            }
         }
     }
 }

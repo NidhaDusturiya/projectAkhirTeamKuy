@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             val bundle = Bundle()
             bundle.putString("username", user.login)
             detailFragment.arguments = bundle
-            //tetep force close
+
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.NavHostFragment, detailFragment)
             transaction.commit()

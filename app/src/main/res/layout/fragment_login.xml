@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/logreg"
+    android:background="@color/dblue"
     tools:context="com.example.teamkuy2.ui.login.LoginActivity">
 
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="11dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Welcome Back"
-        android:textColor="@color/dblue"
+        android:textColor="@color/white"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +34,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_txt"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
+        android:layout_height="600dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape_bg_layout_login"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
