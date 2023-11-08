@@ -12,15 +12,24 @@ class Splashscreen : AppCompatActivity() {
         setContentView(R.layout.fragment_splashscreen)
         supportActionBar?.hide()
 
+        val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+
         val splash = findViewById<ImageView>(R.id.splashs)
 
         splash.alpha = 0f
         splash.animate().setDuration(1000).alpha(1f).withEndAction {
-            val intent = Intent(this, OnBoarding::class.java)
-            startActivity(intent)
+            val redirectIntent = if (isLoggedIn) {
+                // Pengguna telah login, arahkan ke MainActivity
+                Intent(this, MainActivity::class.java)
+            } else {
+                // Pengguna belum login, arahkan ke LoginActivity
+                Intent(this, OnBoarding::class.java)
+            }
+            startActivity(redirectIntent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }
-
     }
 }
+

@@ -1,6 +1,7 @@
 package com.example.teamkuy2
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -31,5 +32,14 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+    fun hideBottomNavigationView() {
+        val navView: BottomNavigationView = binding.navView
+        navView.visibility = View.GONE
+    }
+
+    fun showBottomNavigationView() {
+        val navView: BottomNavigationView = binding.navView
+        navView.visibility = View.VISIBLE
     }
 }

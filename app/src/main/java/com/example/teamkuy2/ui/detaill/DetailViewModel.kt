@@ -13,14 +13,12 @@ import kotlinx.coroutines.launch
 
 class DetailViewModel() : ViewModel(){
     val resultDetailUser = MutableLiveData<Result>()
-    val resultFollowersUser = MutableLiveData<Result>()
-    val resultFollowingUser = MutableLiveData<Result>()
     fun getDetailUser(username : String){
         viewModelScope.launch {
             flow{
                 val response = ApiClient
                     .githubService
-                    .getDetailUserGithub(username)
+                    .getDetailUserGithub2(username)
 
                 emit(response)
             }.onStart {
@@ -32,47 +30,6 @@ class DetailViewModel() : ViewModel(){
                     resultDetailUser.value = Result.Error(it)
             }.collect{
                     resultDetailUser.value = Result.Success(it)
-            }
-        }
-    }
-
-    fun getFollowers(username: String) {
-        viewModelScope.launch {
-            flow {
-                val response = ApiClient
-                    .githubService
-                    .getFollowersUserGithub(username)
-
-                emit(response)
-            }.onStart {
-                resultFollowersUser.value = Result.Loading(true)
-            }.onCompletion {
-                resultFollowersUser.value = Result.Loading(false)
-            }.catch {
-                it.printStackTrace()
-                resultFollowersUser.value = Result.Error(it)
-            }.collect {
-                resultFollowersUser.value = Result.Success(it)
-            }
-        }
-    }
-    fun getFollowing(username: String) {
-        viewModelScope.launch {
-            flow {
-                val response = ApiClient
-                    .githubService
-                    .getFollowingUserGithub(username)
-
-                emit(response)
-            }.onStart {
-                resultFollowingUser.value = Result.Loading(true)
-            }.onCompletion {
-                resultFollowingUser.value = Result.Loading(false)
-            }.catch {
-                it.printStackTrace()
-                resultFollowingUser.value = Result.Error(it)
-            }.collect {
-                resultFollowingUser.value = Result.Success(it)
             }
         }
     }

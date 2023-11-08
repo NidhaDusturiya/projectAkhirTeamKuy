@@ -1,4 +1,5 @@
 package com.example.teamkuy2.ui.login
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -6,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.teamkuy2.MainActivity
 import com.example.teamkuy2.databinding.FragmentLoginBinding
+import com.example.teamkuy2.ui.SharedPreferences
 import com.example.teamkuy2.ui.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -26,11 +28,17 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+        val sharedPreferences = SharedPreferences(this)
+
         binding.btnMasuk.setOnClickListener{
-
-
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPass.text.toString()
+            val user = FirebaseAuth.getInstance().currentUser
+            val userId = user?.uid
+
+            if (userId != null) {
+                sharedPreferences.saveValue2(userId)
+            }
 
             if (email.isEmpty()){
             binding.inputEmail.error = "email harus diisi"
@@ -58,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
                     .addOnCompleteListener(this){
                         if (it.isSuccessful){
                             Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
+                            saveLoginStatus()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         }else{
@@ -65,5 +74,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
+    private fun saveLoginStatus() {
+        val sharedPreferences: android.content.SharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+        val editor: android.content.SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putBoolean("is_logged_in", true)
+        editor.apply()
+    }
 
     }

@@ -11,25 +11,25 @@ import com.example.teamkuy2.ui.model.ResponseGithub
 import java.util.*
 
 class UserAdapter(
-    private var Alldata:MutableList<ResponseGithub.ResponseGithubItem> = mutableListOf(),
-    private val listener : (ResponseGithub.ResponseGithubItem) -> Unit):
+    private var Alldata:MutableList<ResponseGithub.item> = mutableListOf(),
+    private val listener : (ResponseGithub.item) -> Unit):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>(), Filterable {
 
-    private  var filteredData: MutableList<ResponseGithub.ResponseGithubItem> = Alldata.toMutableList()
+    private  var filteredData: MutableList<ResponseGithub.item> = Alldata.toMutableList()
 
     init {
         this.Alldata= Alldata.toMutableList()
         this.filteredData = Alldata.toMutableList()
     }
 
-    fun setData(data: MutableList<ResponseGithub.ResponseGithubItem>){
+    fun setData(data: MutableList<ResponseGithub.item>){
         this.Alldata.clear()
         this.Alldata.addAll(data)
         this.filteredData = Alldata.toMutableList()
         notifyDataSetChanged()
     }
     class UserViewHolder(private val v: ItemListUserBinding) : RecyclerView.ViewHolder(v.root){
-        fun bind(item: ResponseGithub.ResponseGithubItem){
+        fun bind(item: ResponseGithub.item){
             Glide.with(v.itemAvatar)
                 .load(item.avatar_url)
                 .circleCrop()
@@ -59,7 +59,7 @@ class UserAdapter(
                 if (charSearch.isEmpty()){
                     filteredData = Alldata.toMutableList()
                 }else{
-                    val resultList = mutableListOf<ResponseGithub.ResponseGithubItem>()
+                    val resultList = mutableListOf<ResponseGithub.item>()
                     for (row in Alldata) {
                         if (row.login.toLowerCase(Locale.ROOT).contains(charSearch)) {
                             resultList.add(row)
@@ -73,7 +73,7 @@ class UserAdapter(
             }
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filteredData = results?.values as? MutableList<ResponseGithub.ResponseGithubItem> ?: Alldata
+                filteredData = results?.values as? MutableList<ResponseGithub.item> ?: Alldata
                 notifyDataSetChanged()
             }
         }

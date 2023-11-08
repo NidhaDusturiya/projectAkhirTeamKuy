@@ -13,13 +13,9 @@ import androidx.fragment.app.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.teamkuy2.MainActivity
-import com.example.teamkuy2.R
 import com.example.teamkuy2.databinding.FragmentHomeDetailBinding
-import com.example.teamkuy2.ui.detaill.aboutFollow.FollowFragment
 import com.example.teamkuy2.ui.home.Result
 import com.example.teamkuy2.ui.model.ResponseDetailUser
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeDetailFragment : Fragment() {
     private lateinit var binding: FragmentHomeDetailBinding
@@ -33,12 +29,18 @@ class HomeDetailFragment : Fragment() {
         binding = FragmentHomeDetailBinding.inflate(inflater, container, false)
         val username = requireArguments().getString("username")?: ""
 
+        // Hide the BottomNavigationView
+        (requireActivity() as? MainActivity)?.hideBottomNavigationView()
         //back to main
         binding.back.setOnClickListener {
             val intent = Intent(requireActivity(), MainActivity::class.java)
             startActivity(intent)
         }
+        //hide action bar
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+
+//        val item = arguments?.getParcelable<ResponseGithub.item>("item")
+
 
         viewModel.resultDetailUser.observe(viewLifecycleOwner) {
             when (it){
@@ -47,8 +49,13 @@ class HomeDetailFragment : Fragment() {
                     binding.imageDetail.load(user.avatar_url){
                         transformations(CircleCropTransformation())
                     }
-                    binding.tvUsernameDetail.text = user.followers.toString()
-                    binding.tvLocationDetail.text = user.location
+                    binding.tvUsernameDetail.text = user.login
+                    binding.tvUrlGithub.text = user.html_url
+                    binding.totalFollowers.text = user.followers.toString()
+                    binding.totalFollowing.text = user.following.toString()
+                    binding.txtFullname.text = user.name
+                    binding.txtLocation.text = user.location
+                    binding.txtCompany.text = user.company
 
                 }
                 is Result.Error-> {
@@ -60,39 +67,6 @@ class HomeDetailFragment : Fragment() {
             }
         }
         viewModel.getDetailUser(username)
-
-        val fragments = mutableListOf<Fragment>(
-            FollowFragment.newInstance(FollowFragment.FOLLOWERS),
-            FollowFragment.newInstance(FollowFragment.FOLLOWING)
-        )
-        val titleFragments = mutableListOf(
-            getString(R.string.followers), getString(R.string.following),
-        )
-        val adapter = DetailAdapter(requireActivity(), fragments)
-        binding.viewpager.adapter = adapter
-
-        TabLayoutMediator(binding.tab, binding.viewpager) { tab, posisi ->
-            tab.text = titleFragments[posisi]
-        }.attach()
-
-        binding.tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                if (tab?.position == 0) {
-                    viewModel.getFollowers(username)
-                } else {
-                    viewModel.getFollowing(username)
-                }
-            }
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-
-        })
-        viewModel.getFollowers(username)
         return  binding.root
 
 

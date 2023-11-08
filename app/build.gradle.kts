@@ -73,9 +73,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
-//    implementation("androidx.room:room-runtime:2.5.2")
 //    ksp("androidx.room:room-compiler:2.5.2")
-
 
     //firebase
     implementation("com.google.firebase:firebase-auth:22.2.0")
@@ -107,4 +105,5 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.4.2")
     kapt ("androidx.room:room-compiler:2.4.2")
     implementation ("androidx.room:room-rxjava3:2.4.2")
+
 }

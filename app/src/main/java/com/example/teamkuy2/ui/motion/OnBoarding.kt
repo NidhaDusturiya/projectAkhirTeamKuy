@@ -11,14 +11,12 @@ import com.example.teamkuy2.ui.login.LoginActivity
 
 class OnBoarding : AppCompatActivity() {
     private lateinit var binding: FragmentOnBoardingBinding
-    //    private lateinit var sharedPreferences: SharedPreferences
+//    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupView()
-//
 //        // Initialize SharedPreferences
 //        sharedPreferences = getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
 //
@@ -39,6 +37,7 @@ class OnBoarding : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        setupView()
     }
 
     private fun setupView() {

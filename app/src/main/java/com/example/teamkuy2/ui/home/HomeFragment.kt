@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: UserAdapter
-    private lateinit var listUser: MutableList<ResponseGithub.ResponseGithubItem>
+    private lateinit var listUser: MutableList<ResponseGithub.item>
 
     private val viewModel by viewModels<HomeViewModel>()
     override fun onCreateView(
@@ -30,8 +30,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        adapter = UserAdapter(mutableListOf()){
-            user ->  val detailFragment = HomeDetailFragment()
+        adapter = UserAdapter(mutableListOf()){ user ->  val detailFragment = HomeDetailFragment()
             val bundle = Bundle()
             bundle.putString("username", user.login)
             detailFragment.arguments = bundle
@@ -49,7 +48,7 @@ class HomeFragment : Fragment() {
         viewModel.resultUser.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Result.Success<*> -> {
-                    listUser = result.dataa as MutableList<ResponseGithub.ResponseGithubItem>
+                    listUser = result.dataa as MutableList<ResponseGithub.item>
                     adapter.setData(listUser)
                     setupSearchView()
                 }
